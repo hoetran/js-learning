@@ -57,3 +57,25 @@ walkDog().then(value => {console.log(value); return cleanKitchen()})
                   .then(value => {console.log(value); return takeOutTrash()})
                   .then(value => {console.log(value); console.log("You finished all the chores!")})
                   .catch(error => console.error(error));
+
+function datDoAn(monAn){
+    return new Promise((resolve, reject) => {
+        console.log(`Dang chuan bi ${monAn}...`);
+
+        setTimeout(() => {
+            const conHang = Math.random() > 0.5; // 50% con hang
+
+            if (conHang) {
+                resolve(`${monAn} da xong, moi dung!`);
+            }
+            else {
+                reject(`${monAn} het hang roi!`);
+            }
+        }, 2000);
+    })
+}
+
+datDoAn("Pho bo")
+    .then(ketQua => console.log(ketQua))
+    .catch(loi => console.log(loi))
+    .finally(() => console.log('xong'))
